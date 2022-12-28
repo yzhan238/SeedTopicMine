@@ -2,12 +2,16 @@
 The source code used for paper "[Effective Seed-Guided Topic Discovery by Integrating Multiple Types of Contexts](https://arxiv.org/abs/2212.06002)", published in WSDM 2023.
 
 ## Data
-We use two benchmmark datasets, NYT and Yelp, in our paper. You can find the two datasets from [**here**](https://github.com/yumeng5/CatE/tree/master/datasets).
+We use two benchmmark datasets, NYT and Yelp, in our paper. You can find the two datasets from [**here**](https://github.com/yumeng5/CatE/tree/master/datasets).  
+
+Use the following command to generate PLM embeddings 
+```
+python plm_emb.py
+```
 
 ## Run SeedTopicMine
 ```
-./cate.sh
-./caseolap.sh
+python main.py
 ```
 
 ## Baselines
