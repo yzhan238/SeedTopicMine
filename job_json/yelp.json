@@ -1,0 +1,2 @@
+{"dataset":"yelp", "topic":"food", "num_iter":5}
+{"dataset":"yelp", "topic":"senti", "num_iter":5}
