@@ -6,16 +6,15 @@ from rank_ensemble import rank_ensemble
 from utils import *
 
 parser = argparse.ArgumentParser(description='main', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-parser.add_argument('--dataset', default='nyt', type=str)
-parser.add_argument('--text_file', default='corpus_train.txt', type=str)
-parser.add_argument('--topic', default='topics', type=str)
-parser.add_argument('--pretrain_emb', default='word2vec_100.txt', type=str)
-parser.add_argument('--topk', default=20, type=int)
-parser.add_argument('--num_iter', default=4, type=int)
-parser.add_argument('--num_sent', default=500, type=int)
-parser.add_argument('--sent_window', default=4, type=int)
-parser.add_argument('--alpha', default=0.2, type=float)
-parser.add_argument('--rank_ens', default=0.3, type=float)
+parser.add_argument('--dataset', default='nyt', type=str, help='name of dataset folder')
+parser.add_argument('--text_file', default='corpus_train.txt', type=str, help='training corpus')
+parser.add_argument('--topic', default='topics', type=str, help='name of topics')
+parser.add_argument('--pretrain_emb', default='word2vec_100.txt', type=str, help='pretrained word2vec embeddings for CatE')
+parser.add_argument('--num_iter', default=4, type=int, help='number of iterations')
+parser.add_argument('--num_sent', default=500, type=int, help='maximum number of retrieved sentences')
+parser.add_argument('--sent_window', default=4, type=int, help='window size for retrieving context sentences')
+parser.add_argument('--alpha', default=0.2, type=float, help='weight for calculating topic-indicative context scores')
+parser.add_argument('--rank_ens', default=0.3, type=float, help='threshold for rank ensemble')
 args = parser.parse_args()
 
 
