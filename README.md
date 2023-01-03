@@ -2,22 +2,23 @@
 The source code used for paper "[Effective Seed-Guided Topic Discovery by Integrating Multiple Types of Contexts](https://arxiv.org/abs/2212.06002)", published in WSDM 2023.
 
 ## Data
-We use two benchmmark datasets, NYT and Yelp, in our paper. You can find the two datasets from [**here**](https://github.com/yumeng5/CatE/tree/master/datasets).  
+We use two benchmmark datasets, NYT and Yelp, in our paper, adapted from [**here**](https://github.com/yumeng5/CatE/tree/master/datasets). We use 60% as training corpus and the remaining 40% for evaluation.
 
-Use the following command to generate PLM embeddings 
+Use the following command to generate PLM embeddings for the training corpus (gpu required)
 ```
 python plm_emb.py
 ```
 
 ## Run SeedTopicMine
 ```
-python main.py
+python main.py --dataset nyt --topic locations
 ```
+
 
 ## Baselines
 4 baselines are compared in our paper: SeededLDA, Anchored CorEx, KeyETM, and CatE.
 
-To reproduce the results of SeededLDA and Anchored CorEx, please refer to ```./SeededLDA.py``` and ```./AnchoredCorEx.py```, respectively.
+To reproduce the results of SeededLDA and Anchored CorEx, please refer to ```./baselines/SeededLDA.py``` and ```./baselines/AnchoredCorEx.py```, respectively.
 
 To reproduce the results of KeyETM and CatE, please refer to their GitHub repositories (i.e., [**KeyETM**](https://github.com/bahareharandizade/keyetm) and [**CatE**](https://github.com/yumeng5/CatE)).
 
