@@ -1,9 +1,0 @@
-business
-politics
-sports
-health
-education
-real_estate
-arts
-science
-technology

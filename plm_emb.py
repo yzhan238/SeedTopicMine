@@ -14,7 +14,9 @@ import pickle
 
 parser = argparse.ArgumentParser(description='main', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('--dataset', default='nyt', type=str)
+parser.add_argument('--text_file', default='corpus_train.txt', type=str)
 parser.add_argument('--plm', default='bert-base-uncased', type=str)
+parser.add_argument('--batch_size', default=64, type=int)
 parser.add_argument('--gpu', default=0, type=int)
 args = parser.parse_args()
 
@@ -37,7 +39,7 @@ def get_num_lines(file_path):
     return lines
 
 
-file = f'cate_datasets/{args.dataset}/corpus_train.txt'
+file = f'datasets/{args.dataset}/{args.text_file}'
 vocab = {}
 inv_vocab = {}
 sentences = []
@@ -55,7 +57,7 @@ with open(file) as f:
                     inv_vocab[vocab[tok]] = tok
             sentences.append((flat_ids, [vocab[tok] for tok in sent_toks], indices))
 
-batch_size = 64
+batch_size = args.batch_size
 iterations = int(len(sentences)/batch_size) + (0 if len(sentences) % batch_size == 0 else 1)
 phrase_div = np.zeros((len(vocab), 1))
 phrase_emb = np.zeros((len(vocab), 768))
@@ -80,4 +82,4 @@ ave_phrase_emb = phrase_emb / phrase_div
 
 kv = KeyedVectors(768)
 kv.add_vectors([inv_vocab[i] for i in range(len(vocab))], ave_phrase_emb)
-kv.save(f'cate_datasets/{args.dataset}/{args.dataset}_bert')
+kv.save(f'datasets/{args.dataset}/{args.dataset}_bert')
