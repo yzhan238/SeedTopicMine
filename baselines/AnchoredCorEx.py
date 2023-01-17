@@ -9,14 +9,14 @@ dataset = 'nyt'
 dim = 'topics'
 
 word2cnt = defaultdict(int)
-with open(f'../Datasets/{dataset}/corpus_train.txt') as fin:
+with open(f'../datasets/{dataset}/corpus_train.txt') as fin:
 	for line in fin:
 		data = line.strip().split()
 		for word in data:
 			word2cnt[word] += 1
 
 seeds = []
-with open(f'../Datasets/{dataset}/seed_{dim}.txt') as fin:
+with open(f'../datasets/{dataset}/{dim}.txt') as fin:
 	for line in fin:
 		data = line.strip()
 		seeds.append(data)
@@ -24,7 +24,7 @@ with open(f'../Datasets/{dataset}/seed_{dim}.txt') as fin:
 word2id = {}
 vocab = []
 texts = []
-with open(f'../Datasets/{dataset}/corpus_train.txt') as fin:
+with open(f'../datasets/{dataset}/corpus_train.txt') as fin:
 	for line in fin:
 		data = line.strip().split()
 		text = []
