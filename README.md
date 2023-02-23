@@ -10,6 +10,13 @@ python plm_emb.py
 ```
 
 ## Run SeedTopicMine
+Before the first run, compile CatE by 
+```
+cd cate
+make cate
+cd ..
+```
+Then run the following command for SeedTopicMine
 ```
 python main.py --dataset nyt --topic locations
 ```
