@@ -44,10 +44,11 @@ There are 6 columns. The first column is the term. The other 5 columns are the r
 ## Citation
 If you find the implementation useful, please cite the following paper:
 ```
-@article{zhang2023effective,
+@inproceedings{zhang2023effective,
   title={Effective Seed-Guided Topic Discovery by Integrating Multiple Types of Contexts},
   author={Zhang, Yu and Zhang, Yunyi and Michalski, Martin and Jiang, Yucheng and Meng, Yu and Han, Jiawei},
-  journal={WSDM},
+  booktitle={WSDM'23},
+  pages={429--437},
   year={2023}
 }
 ```
